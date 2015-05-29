@@ -41,7 +41,7 @@ public class UccCustomer {
 //	
 //	private static final String ECHAT_EC_RECORD = "echat:ec:record";
 //	private static final String ECHAT_EC_STATUS = "echat:ec:status";
-//	
+//	 
 //	public static void main(String[] args) throws Exception{
 //		invokeUcc();
 //		

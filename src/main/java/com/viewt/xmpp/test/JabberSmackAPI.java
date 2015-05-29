@@ -66,7 +66,7 @@ package com.viewt.xmpp.test;
 //	public void offlineNotification(String arg0, String arg1) {
 //		System.out.println("offlineNotification");
 //	}
-//
+// 
 //	XMPPConnection connection;
 //
 //	public void login(String workgroupName, String password) throws SmackException,

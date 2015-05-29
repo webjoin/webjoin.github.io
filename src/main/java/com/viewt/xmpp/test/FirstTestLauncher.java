@@ -26,7 +26,7 @@ public class FirstTestLauncher {
 //		conn.connect();
 //		conn.login("elijah", "123456");
 //		ChatManager chatManager = ChatManager.getInstanceFor(conn);
-//		
+//		 
 //		
 //		final MessageListener messageListener = new MessageListener() {
 //			@Override

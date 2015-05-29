@@ -12,7 +12,7 @@ package com.viewt.xmpp.test;
 //import org.jivesoftware.smack.Roster;
 //import org.jivesoftware.smack.RosterEntry;
 //import org.jivesoftware.smack.SmackException;
-//import org.jivesoftware.smack.XMPPConnection;
+//import org.jivesoftware.smack.XMPPConnection; 
 //import org.jivesoftware.smack.XMPPException;
 //import org.jivesoftware.smack.SmackException.NotConnectedException;
 //import org.jivesoftware.smack.packet.Message;

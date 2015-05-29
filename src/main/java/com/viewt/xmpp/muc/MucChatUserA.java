@@ -32,7 +32,7 @@ public class MucChatUserA {
 	static String domain = "openfire-test";
 	static String host = "192.168.1.45" ;
 	public static void main(String[] args) throws Exception {
-//		4.0.5°æ±¾ smack
+//		4.0.5°æ±¾ smack 
 //		host = "192.168.12.12" ;
 ////		XMPPTCPConnection
 //		ConnectionConfiguration config = new ConnectionConfiguration(host, 5222);
