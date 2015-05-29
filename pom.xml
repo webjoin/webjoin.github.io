@@ -57,7 +57,17 @@
 			<artifactId>smack-core</artifactId>
 			<version>4.2.0-alpha1</version>
 		</dependency>
-		        
+		<dependency>
+			<groupId>org.igniterealtime.smack</groupId>
+			<artifactId>smack-tcp</artifactId>
+			<version>4.2.0-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.igniterealtime.smack</groupId>
+			<artifactId>smack-extensions</artifactId>
+			<version>4.2.0-alpha1</version>
+		</dependency>
+						        
 		        
         <dependency>   
 			<groupId>com.hazelcast</groupId>
