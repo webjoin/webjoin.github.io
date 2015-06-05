@@ -1,18 +1,18 @@
 package com.viewt.xmpp.test;
 
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+//import java.io.BufferedReader;
+//import java.io.InputStreamReader;
 
 //import org.jivesoftware.smack.Chat;
 //import org.jivesoftware.smack.ChatManager;
 //import org.jivesoftware.smack.ChatManagerListener;
-import org.jivesoftware.smack.ConnectionConfiguration;
-import org.jivesoftware.smack.MessageListener;
-import org.jivesoftware.smack.SmackException.NotConnectedException;
-import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.packet.Message;
-import org.jivesoftware.smack.tcp.XMPPTCPConnection;
+//import org.jivesoftware.smack.ConnectionConfiguration;
+//import org.jivesoftware.smack.MessageListener;
+//import org.jivesoftware.smack.SmackException.NotConnectedException;
+//import org.jivesoftware.smack.XMPPException;
+//import org.jivesoftware.smack.packet.Message;
+//import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 
 
 public class FirstTestLauncher {
