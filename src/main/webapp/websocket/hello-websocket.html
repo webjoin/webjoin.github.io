@@ -2,35 +2,84 @@
  <html>  
  <head>  
  <title>Testing websockets</title>  
+
+ <style type="text/css">
+
+
+ #workdiv{
+    background-color: black;
+    color: #FFF;
+    width: 500px;
+    height: 300px;
+ }
+ #entencediv{
+     
+    height: 50px;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; 
+    font-weight:100;
+    font-size: 200%;
+ }
+ #nickname {
+    border-style: none;
+    height: 50px;
+    border-bottom: 1px solid black ; 
+    line-height: 30px;
+    font-weight:100;
+    font-size: 200%;
+    background-color: black;
+    color: white;
+    text-align: center;
+ }
+ </style>
  </head>  
- <body>  
-     <div>  
-         <input type="submit" value="Start" onclick="start()" />  
+ <body >
+
+    <div id="workdiv">
+        <div id="entencediv">What's your nickname?</div>
+        <input type="text" id="nickname" >
+
+    </div>  
+     <div> 
+     	<textarea id = "msg">
+     	</textarea>
+         <input type="button" value="Send" onclick="start(document.getElementById('msg').value)" />  
      </div>  
      <div id="messages"></div>  
-     <script type="text/javascript">  
-         var webSocket =  new WebSocket('ws://localhost:8080/websocket');  
-   		 alert(webSocket+"----");
-         webSocket.onerror = function(event) {  
-             onError(event)  
-         };  
-   
-         webSocket.onopen = function(event) {
-             onOpen(event)  
-         };  
-   
-         webSocket.onmessage = function(event) {  
-             onMessage(event)      
-         };  
-   
-         function onMessage(event) {
-             document.getElementById('messages').innerHTML   
-                 += '<br />' + event.data;  
-         }  
-   
+     <script type="text/javascript">
+     
+     	window.onload = function(){
+     		document.getElementById('nickname').focus();
+     		
+     	}
+     	//debugger;
+     	 var context = location.pathname.substr(1,location.pathname.indexOf('/',2)-1);
+     	var port = location.port;
+     	var host = location.host;
+     	var datetime = new Date().getTime();
+     	var arr = [];
+     	while((new Date().getTime() - datetime) < 1000){
+	         var webSocket =  new WebSocket('ws://'+host+':'+port+'/'+context+'/websocket');  
+	   		 //alert(webSocket+"----")
+	         webSocket.onerror = function(event) {  
+	             onError(event)  
+	         };  
+	   
+	         webSocket.onopen = function(event) {
+	        	 arr.push(webSocket);
+	             onOpen(event)  
+	         };  
+	   
+	         webSocket.onmessage = function(event) {  
+	             onMessage(event)      
+	         };  
+	   
+	         function onMessage(event) {
+	             document.getElementById('messages').innerHTML  += '<br />' + event.data;  
+	         }  
+    	 }
+     	alert(arr.length+"---");
          function onOpen(event) {  
-             document.getElementById('messages').innerHTML   
-                 = 'Connection established';  
+             document.getElementById('messages').innerHTML = 'Connection established';  
          }  
    
          function onError(event) {  
@@ -38,8 +87,8 @@
              alert("error");  
          }  
    
-         function start() {  
-             webSocket.send('hello');  
+         function start(val) {
+             webSocket.send(val);  
              return false;  
          }  
      </script>  

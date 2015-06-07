@@ -7,6 +7,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Jerusalem Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -21,7 +23,7 @@
 		<artifactId>kafka_2.9.2</artifactId>
 		<version>0.8.2.1</version>
 	</dependency> -->
-	
+	<!-- 消息队列 alibaba -->
        <dependency>
            <groupId>org.apache.kafka</groupId>
            <artifactId>kafka_2.10</artifactId>
@@ -41,18 +43,111 @@
                </exclusion>
            </exclusions>
        </dependency>
+       <!-- 性能检测 -->
        <dependency>
 			<groupId>com.sun.tools.btrace</groupId>
 			<artifactId>btrace-boot</artifactId>
 			<version>1.2.3</version>
 		</dependency>
 		       
-       <!--  <dependency>
-			<groupId>org.igniterealtime.smack</groupId>
-			<artifactId>smack-core</artifactId>
-			<version>4.1.1</version>
-		</dependency> -->
-		 <dependency>
+		       <!-- Openfire的java客户端 -->
+         <dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-core</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-core-4.1.1.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-tcp</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-tcp-4.1.1.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-im</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-im-4.1.1.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-extensions</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-extensions-4.1.1.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-experimental</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-experimental-4.1.1.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-sasl-javax</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-sasl-javax-4.1.1.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-sasl-provided</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-sasl-provided-4.1.1.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>org.igniterealtime.smack</groupId>
+				<artifactId>smack-java7</artifactId>
+				<version>4.1.1</version>
+				<scope>system</scope>
+				<systemPath>/Users/Elijah/Learning/smack_4_1_1/libs/smack-java7-4.1.1.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+				<groupId>xmlunit</groupId>
+				<artifactId>xmlunit</artifactId>
+				<version>1.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ogce</groupId>
+				<artifactId>xpp3</artifactId>
+				<version>1.1.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jxmpp</groupId>
+				<artifactId>jxmpp-core</artifactId>
+				<version>0.4.1</version>
+			</dependency>
+			<dependency>
+					<groupId>org.powermock</groupId>
+					<artifactId>powermock-module-junit4</artifactId>
+					<version>1.6.2</version>
+				</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-mockito</artifactId>
+				<version>1.6.2</version>
+			</dependency>
+			<!-- <dependency>
+				<groupId>net.iharder</groupId>
+				<artifactId>base64</artifactId>
+				<version>2.3.8</version>
+			</dependency> -->
+			<!-- <dependency>
+				<groupId>com.jamesmurty.utils</groupId>
+				<artifactId>java-xmlbuilder</artifactId>
+				<version>1.1</version>
+			</dependency> -->
+																		         
+		 <!-- <dependency>
 			<groupId>org.igniterealtime.smack</groupId>
 			<artifactId>smack-core</artifactId>
 			<version>4.2.0-alpha1</version>
@@ -62,13 +157,13 @@
 			<artifactId>smack-tcp</artifactId>
 			<version>4.2.0-alpha1</version>
 		</dependency>
-		<dependency>
+		<dependency> 
 			<groupId>org.igniterealtime.smack</groupId>
 			<artifactId>smack-extensions</artifactId>
 			<version>4.2.0-alpha1</version>
-		</dependency>
+		</dependency>-->
 						        
-		        
+		        <!-- 一个内存对象分布式框架 -->
         <dependency>   
 			<groupId>com.hazelcast</groupId>
 			<artifactId>hazelcast</artifactId>
@@ -79,21 +174,28 @@
 			<artifactId>hazelcast-client</artifactId>
 			<version>3.4.2</version>
 		</dependency>
+		<!-- NIO框架 -->
 		<dependency> 
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
 			<version>4.0.28.Final</version>
 		</dependency>
-		<!-- <dependency>
+		  <dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>websocket-server</artifactId>
 			<version>9.2.11.v20150529</version>
-		</dependency> -->
+		</dependency>  
+		<!-- web-socket -->
 		 <dependency>
 			<groupId>javax.websocket</groupId>
 			<artifactId>javax.websocket-api</artifactId>
 			<version>1.1</version>
-		</dependency> 
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.1.0</version>
+		</dependency>
 		<!-- <dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
@@ -107,6 +209,34 @@
 			  <groupId>org.eclipse.jetty</groupId>
 			  <artifactId>jetty-maven-plugin</artifactId>
 			  <version>9.2.11.v20150529</version>
+			  <configuration>
+			  	<stopKey>alpha</stopKey>
+      			<stopPort>9099</stopPort> 
+			  	<scanIntervalSeconds>2</scanIntervalSeconds>
+			   	<webApp>
+			  		<contextPath>/jerusalem</contextPath>
+			  	</webApp>
+			  	<httpConnector>
+			  		<port>9999</port>
+			  	</httpConnector>
+			  </configuration> 
+			  <executions>
+			  <!-- <execution>
+			  	<id>start-jetty</id>
+			  	<phase>test-compile</phase>
+			  	<goals>
+			  		<goal>deploy-war</goal>
+			  	</goals>
+			  </execution> -->
+				  <!-- <execution>
+				  	<id>stop-jetty</id>
+				  	<phase>test</phase>
+				  	<goals>
+				  		<goal>stop</goal>
+				  	</goals>
+				  </execution> -->
+			       
+		     </executions>
 		</plugin>
  	</plugins>
  </build>
