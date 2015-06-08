@@ -2,7 +2,7 @@
  <html>  
  <head>  
  <title>Testing websockets</title>  
-
+ <meta http-equiv="content-type" content="text/html;charset=utf-8">	
  <style type="text/css">
 
 
@@ -40,7 +40,7 @@
 
     </div>  
      <div> 
-     	<textarea id = "msg">
+     	<textarea id = "msg">broadcast:后台消息
      	</textarea>
          <input type="button" value="Send" onclick="start(document.getElementById('msg').value)" />  
      </div>  
@@ -57,11 +57,11 @@
      	var host = location.host;
      	var datetime = new Date().getTime();
      	var arr = [];
-     	while((new Date().getTime() - datetime) < 1000){
+     	//while((new Date().getTime() - datetime) < 1000){
 	         var webSocket =  new WebSocket('ws://'+host+':'+port+'/'+context+'/websocket');  
 	   		 //alert(webSocket+"----")
 	         webSocket.onerror = function(event) {  
-	             onError(event)  
+	             onError(event)
 	         };  
 	   
 	         webSocket.onopen = function(event) {
@@ -74,10 +74,10 @@
 	         };  
 	   
 	         function onMessage(event) {
-	             document.getElementById('messages').innerHTML  += '<br />' + event.data;  
+	        	 play();
+	             document.getElementById('messages').innerHTML  += '<br />' + event.data;
 	         }  
-    	 }
-     	alert(arr.length+"---");
+    	 //}
          function onOpen(event) {  
              document.getElementById('messages').innerHTML = 'Connection established';  
          }  
@@ -90,7 +90,19 @@
          function start(val) {
              webSocket.send(val);  
              return false;  
-         }  
-     </script>  
+         }
+         function play(){
+        	 //var x = document.createElement("SOURCE");
+        	 //x.setAttribute("src", "horse.mp3");
+        	 //x.setAttribute("type", "audio/mpeg");
+        	 //document.getElementById("myAudio").appendChild(x);
+        	 var mysource = document.getElementById("myAudio");
+        	 mysource.play();
+         }
+     </script>
+     <audio controls="controls" id="myAudio" >
+		  <!-- <source src="MoonlightShadow.mp3" type="audio/mpeg"> -->
+			<source id="mysource" src="classic.mp3" type="audio/mpeg">
+		</audio>
  </body>  
  </html>  
