@@ -28,11 +28,11 @@ public class HelloWebSocket {
 	@OnMessage
     public void onMessage(String message, Session session)   
         throws IOException, InterruptedException {  
-        // Print the client message for testing purposes  
-		if("".equals(message.trim())){
-			System.out.println(new Timestamp(System.currentTimeMillis())+"--heartBeat--"+session.getId());
+		if( "".equals(message.trim())){
+			System.out.println("heartbeat-------------"+session.getId());
 			return ;
 		}
+        // Print the client message for testing purposes  
         System.out.println("Received: " + message);     
         // Send the first message to the client  
         session.getBasicRemote().sendText("This is the first server message");  
@@ -50,9 +50,9 @@ public class HelloWebSocket {
         if(message.contains("broadcast")){
         	Iterator<HelloWebSocket> iterator = set.iterator();
         	while(iterator.hasNext()){
-        		HelloWebSocket nextObj = iterator.next();
-        		if(nextObj.session1.isOpen())
-        			nextObj.session1.getBasicRemote().sendText(message);
+        		Session session1 = iterator.next().session1;
+        		if(session1.isOpen())
+        			session1.getBasicRemote().sendText(message);
         	}
         }
 		
@@ -64,7 +64,7 @@ public class HelloWebSocket {
     	set.add(this);
     	RemoteEndpoint.Async async = session.getAsyncRemote();
     	RemoteEndpoint.Basic base = session.getBasicRemote();
-        System.out.println("Client connected------"+this+"-------"+set.size());  
+        System.out.println("Client connected------"+this+"-------"+set.size()+"---"+this.session1.getId());  
     }  
   
     @OnClose  
