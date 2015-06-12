@@ -13,15 +13,26 @@ import javax.websocket.RemoteEndpoint;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import com.sun.jmx.snmp.Timestamp;
+
 @ServerEndpoint(value = "/websocket")
 public class HelloWebSocket {
 	public HelloWebSocket(){}
 	static Set<HelloWebSocket> set = new HashSet<HelloWebSocket>();
-	Session session1 = null;
+	Session session1 = null;  
+//	@OnMessage
+//    public void onMessage(String session,String cc)   
+//        throws IOException, InterruptedException {  
+//		System.out.println("Exception...");
+//    }
 	@OnMessage
     public void onMessage(String message, Session session)   
         throws IOException, InterruptedException {  
         // Print the client message for testing purposes  
+		if("".equals(message.trim())){
+			System.out.println(new Timestamp(System.currentTimeMillis())+"--heartBeat--"+session.getId());
+			return ;
+		}
         System.out.println("Received: " + message);     
         // Send the first message to the client  
         session.getBasicRemote().sendText("This is the first server message");  
@@ -39,7 +50,9 @@ public class HelloWebSocket {
         if(message.contains("broadcast")){
         	Iterator<HelloWebSocket> iterator = set.iterator();
         	while(iterator.hasNext()){
-        		iterator.next().session1.getBasicRemote().sendText(message);
+        		HelloWebSocket nextObj = iterator.next();
+        		if(nextObj.session1.isOpen())
+        			nextObj.session1.getBasicRemote().sendText(message);
         	}
         }
 		

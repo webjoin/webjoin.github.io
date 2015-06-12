@@ -47,31 +47,33 @@
      <div id="messages"></div>  
      <script type="text/javascript">
      
-     	window.onload = function(){
-     		document.getElementById('nickname').focus();
-     		
-     	}
-     	//debugger;
-     	 var context = location.pathname.substr(1,location.pathname.indexOf('/',2)-1);
+     	var context = location.pathname.substr(1,location.pathname.indexOf('/',2)-1);
      	var port = location.port;
      	var host = location.host;
      	var datetime = new Date().getTime();
      	var arr = [];
-     	//while((new Date().getTime() - datetime) < 1000){
-	         var webSocket =  new WebSocket('ws://'+host+':'+port+'/'+context+'/websocket');  
-	   		 //alert(webSocket+"----")
-	         webSocket.onerror = function(event) {  
-	             onError(event)
-	         };  
-	   
-	         webSocket.onopen = function(event) {
-	        	 arr.push(webSocket);
-	             onOpen(event)  
-	         };  
-	   
-	         webSocket.onmessage = function(event) {  
-	             onMessage(event)      
-	         };  
+     	var webSocket = null ;
+     	var interval = null ;
+     	window.onload = function(){
+     		document.getElementById('nickname').focus();
+     		//debugger;
+         	//while((new Date().getTime() - datetime) < 1000){
+   	         webSocket =  new WebSocket('ws://'+host+':'+port+'/'+context+'/websocket');  
+   	   		 //alert(webSocket+"----")
+   	         webSocket.onerror = function(event) {  
+   	             onError(event)
+   	         };  
+   	   
+   	         webSocket.onopen = function(event) {
+   	        	 //arr.push(webSocket);
+   	             onOpen(event)  
+   	         };  
+   	   
+   	         webSocket.onmessage = function(event) {  
+   	             onMessage(event)      
+   	         }; 
+     	}
+     	
 	   
 	         function onMessage(event) {
 	        	 play();
@@ -80,17 +82,21 @@
     	 //}
          function onOpen(event) {  
              document.getElementById('messages').innerHTML = 'Connection established';  
+             //window.setInterval("start('')",1000)
+             interval = setInterval(function() {webSocket.send(" ")}, 10000);
          }  
    
          function onError(event) {  
              alert(event.data);  
-             alert("error");  
+             //alert("error");
+             
          }  
-   
+   		
          function start(val) {
              webSocket.send(val);  
              return false;  
          }
+         
          function play(){
         	 //var x = document.createElement("SOURCE");
         	 //x.setAttribute("src", "horse.mp3");
