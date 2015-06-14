@@ -36,15 +36,22 @@
 
     <div id="workdiv">
         <div id="entencediv">What's your nickname?</div>
-        <input type="text" id="nickname" >
-
-    </div>  
+        <input type="text" id="nickname" onkeyup="enter(event,this.id)">
+    </div>
+    <input type="button" value="Create_muc" onclick="create_muc()" />
+    <div id ="inviters" title="邀请人列表"></div>
+    <div id="onlines" title="在线用户列表"></div>
+    <input type="button" value="Invite" onclick="invite()" />
      <div> 
      	<textarea id = "msg">broadcast:后台消息
      	</textarea>
          <input type="button" value="Send" onclick="start(document.getElementById('msg').value)" />  
      </div>  
      <div id="messages"></div>  
+     <audio controls="controls" id="myAudio" >
+		  <!-- <source src="MoonlightShadow.mp3" type="audio/mpeg"> -->
+			<source id="mysource" src="classic.mp3" type="audio/mpeg">
+		</audio>
      <script type="text/javascript">
      
      	var context = location.pathname.substr(1,location.pathname.indexOf('/',2)-1);
@@ -56,7 +63,7 @@
      	var interval = null ;
      	window.onload = function(){
      		document.getElementById('nickname').focus();
-     		//debugger;
+     		//;
          	//while((new Date().getTime() - datetime) < 1000){
    	         webSocket =  new WebSocket('ws://'+host+':'+port+'/'+context+'/muc-websocket');  
    	   		 //alert(webSocket+"----")
@@ -73,42 +80,110 @@
    	             onMessage(event)      
    	         }; 
      	}
-     	
-	   
-	         function onMessage(event) {
-	        	 play();
-	             document.getElementById('messages').innerHTML  += '<br />' + event.data;
-	         }  
-    	 //}
-         function onOpen(event) {  
-             document.getElementById('messages').innerHTML = 'Connection established';  
-             //window.setInterval("start('')",1000)
-             interval = setInterval(function() {webSocket.send("{'type':'empty'}");console.log('log');}, 1000);
-         }  
-   
+			function get(id){
+				return document.getElementById(id);
+			}
+	         function onOpen(event) {  
+	             document.getElementById('messages').innerHTML = 'Connection established';  
+	             //window.setInterval("start('')",1000)
+	             interval = setInterval(function() {webSocket.send("{'type':'empty'}");console.log('log');}, 15000);
+         	}  
          function onError(event) {  
              alert(event.data);  
              //alert("error");
              
          }  
-   		
+         var nickname = null ; //昵称
+         var mucname = null ;  //房间名称
+         var send_data = '{"type":"${type}","nickname":"${nickname}","invitedName":"${invitedName}","reason":"${reason}","mucname":"${mucname}","msg":"${msg}"}';
          function start(val) {
-             webSocket.send(val);  
+             //webSocket.send(val);  
+             var data = send_data.replace("${type}","msg").replace("${msg}",val).replace("${mucname}",mucname);
+        	 webSocket.send(data);
              return false;  
          }
          
          function play(){
-        	 //var x = document.createElement("SOURCE");
-        	 //x.setAttribute("src", "horse.mp3");
-        	 //x.setAttribute("type", "audio/mpeg");
-        	 //document.getElementById("myAudio").appendChild(x);
-        	 var mysource = document.getElementById("myAudio");
+        	 var mysource = get("myAudio");
         	 mysource.play();
+        	 
+         }
+         function onMessage(event) {
+        	 eval(event.data);
+        	 //play();
+             document.getElementById('messages').innerHTML  += '<br />' + event.data;
+             if("createMuc" == msg.type ){ //获取创建好的房间名称
+            	 mucname = msg.mucname ; 
+             }else if("online" == msg.type ){ //上线
+    	         //现在用户列表
+    	         var sessionID = msg.sessionID ; 
+    	         var name = msg.nickname+":"+sessionID ; 
+        	     get("onlines").innerHTML +="<input type='checkbox' id='"+name+"' value='"+name+"'> "+name+"<br/>";
+             }else if("invited" == msg.type){ //被邀请的通知
+				
+            	 var nickname1 = msg.nickname ; //邀请人
+            	 var reason = msg.reason;
+            	 mucname = msg.mucname ;
+            	 var data = send_data.replace("${type}","receive")
+            	 			.replace("${mucname}",mucname) //
+            	 			.replace("${nickname}",nickname)
+            	 webSocket.send(data);
+             }
+         }
+         //昵称输入
+         function enter(event,id){
+        	if ( 13 == event.keyCode){
+				nickname = document.getElementById(id).value;
+				if(nickname && nickname.length > 0){
+					//做登陆
+					var data = send_data.replace("${type}","nickname").replace("${nickname}",nickname);
+					
+					//var data = send_data.replace("${type}","create_muc");
+					webSocket.send(data);
+					//alert("data");
+				}
+        	}
+         }
+         //创建群
+         function create_muc(){
+			
+        		var data = send_data.replace("${type}","create_muc").replace( "${nickname}",nickname );
+				//var data = send_data.replace("${type}","create_muc");
+				try{
+					webSocket.send(data);
+				}catch(e){
+					console.log(e+"-----ddd");
+				}
+        	 
+         }
+         //邀请好友
+         function invite(){
+         	var invitees = [];
+        	 var els = get("onlines").getElementsByTagName("input");
+        	 for(var i=0 ; i < els.length ; i++){
+        		 if(els[i].checked == true){
+        			 invitees.push(els[i].value);
+        		 }
+        	 }
+        	 ;
+        	 if(invitees.length > 0){
+				var sessionID = invitees[0].split(":")[1];
+				var nickname1 = invitees[0].split(":")[0];
+				
+        		 var reason = "{'sessionID':'"+sessionID+"','nickname':'"+nickname+"','reason':'join us that do something...'}";
+	        	 var data = send_data.replace("${type}","invite")
+	        	 			.replace( "${reason}",reason )
+	        	 			.replace( "${mucname}",mucname )
+	        	 			.replace( "${invitedName}",nickname1 ) //被邀请人
+	        	 			;
+					
+	        	 webSocket.send(data);
+        	 }
+         }
+         function receive(){
+        	 
          }
      </script>
-     <audio controls="controls" id="myAudio" >
-		  <!-- <source src="MoonlightShadow.mp3" type="audio/mpeg"> -->
-			<source id="mysource" src="classic.mp3" type="audio/mpeg">
-		</audio>
+     
  </body>  
  </html>  

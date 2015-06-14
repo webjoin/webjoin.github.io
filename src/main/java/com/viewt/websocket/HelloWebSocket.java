@@ -9,11 +9,9 @@ import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
-import javax.websocket.RemoteEndpoint;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import com.sun.jmx.snmp.Timestamp;
 
 @ServerEndpoint(value = "/websocket")
 public class HelloWebSocket {
@@ -62,8 +60,8 @@ public class HelloWebSocket {
     public void onOpen (Session session) {
     	this.session1 = session;
     	set.add(this);
-    	RemoteEndpoint.Async async = session.getAsyncRemote();
-    	RemoteEndpoint.Basic base = session.getBasicRemote();
+//    	RemoteEndpoint.Async async = session.getAsyncRemote();
+//    	RemoteEndpoint.Basic base = session.getBasicRemote();
         System.out.println("Client connected------"+this+"-------"+set.size()+"---"+this.session1.getId());  
     }  
   

@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-  	<smack-version-path>D:\bin\xmpp\smack_4_1_1\libs</smack-version-path>
+  	<smack-version-path>/Users/Elijah/Learning/smack_4_1_1/libs</smack-version-path>
   </properties>
   <dependencies>
     <dependency>
@@ -21,7 +21,7 @@
     
     <dependency>
 		<groupId>org.json</groupId>
-		<artifactId>json</artifactId>
+		<artifactId>json</artifactId>   
 		<version>20140107</version>
 	</dependency>
 
@@ -210,6 +210,12 @@
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 		</dependency> -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.7.2</version>
+		</dependency>
+				
   </dependencies>
  
  <build>

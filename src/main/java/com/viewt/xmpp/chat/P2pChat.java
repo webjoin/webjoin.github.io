@@ -27,6 +27,7 @@ public class P2pChat {
 				resource = "viewt",
 				serviceName = "openfire-test",
 				host = "192.168.1.117";
+				host = "127.0.0.1";
 		XMPPTCPConnectionConfiguration config = XMPPTCPConnectionConfiguration.builder()
 //				  .setUsernameAndPassword(username, password)
 				  .setServiceName(serviceName)
