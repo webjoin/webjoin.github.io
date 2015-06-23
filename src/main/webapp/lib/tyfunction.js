@@ -30,7 +30,6 @@ $(function () {
 				}
 				
 			}
-			
 			console.log("left"+event.clientX +"--"+ event.clientY+"--"+event.screenY+'--'+document.body.scrollTop);
 			var y = document.documentElement.scrollTop + event.clientY;
 			var x = document.documentElement.scrollLeft + event.clientX;
@@ -55,11 +54,17 @@ $(function () {
 
 //查找工程源目录下文件
 TyFunction.queryFiles = function(){
-	var val = $('#src_addr').val();
+	var src_addr = $('#src_addr').val();
+	var ip = $('#ip').val();
+	var username = $("#username").val();
+	var passcode = $("#passcode").val();
+	var type = $(":radio")
+	var driver = $('#driver').val();
+	var sid = $('#sid').val();
 	$.ajax({
 	   type: "GET",
 	   url: this.cxt+"/gb",
-	   data: "path="+val,
+	   data: "src_addr="+src_addr+"&ip="+ip+"&username"+username+"&passcode="+passcode+"&type="+type+"&driver="+driver+"&sid="+sid,
 	   success: function(msg){
 	     //alert( "Data Saved: " + msg );
 		   eval('var rs = '+msg);

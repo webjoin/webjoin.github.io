@@ -41,6 +41,7 @@ public class FileUtils {
 				if(files[i].isDirectory() || files[i].isFile() )list.add(files[i].getName());
 				break;
 			}
+			
 		}
 		return list.toArray(new String[list.size()]) ;
 	}
