@@ -1,7 +1,10 @@
 package com.viewt.gb;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.channels.FileChannel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -12,15 +15,20 @@ import javax.sql.DataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.viewt.gb.servlet.OperateResource;
 
-public class DBUtil {
+public class Util {
 	
+	public final static String gbFile = System.getProperty("user.home")+ "/.gb.properties";
+	public final static String zhFile = Util.class.getResource("").getPath()+"zh.properties";
+	public final static String enFile = Util.class.getResource("").getPath()+"en.properties";
+	public final static Properties zhProps = new Properties();
+	public final static Properties enProps = new Properties();
 	
 	private static DataSource ds = null;   
-    public static Properties props = new Properties();
+    public final static Properties props = new Properties();
     public  static void initProperties(){
     	try{
-            InputStream in = DBUtil.class.getResourceAsStream(OperateResource.userHome);//getResourceAsStream(DBUtil.class.getResource("").getPath()+"ds.properties");
-            props = new Properties();
+    		props.clear();
+            InputStream in = Util.class.getResourceAsStream(gbFile);//getResourceAsStream(DBUtil.class.getResource("").getPath()+"ds.properties");
             props.load(in);
             System.out.println(props.get("url"));
             in.close();
@@ -28,15 +36,12 @@ public class DBUtil {
             ex.printStackTrace();
         }
     }
-    public  static void initDB(){
-		try {
+    public  static void initDB() throws Exception{
+			initProperties();
 			ds = DruidDataSourceFactory.createDataSource(props);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
     }
      
-    public static Connection openConnection() throws SQLException{
+    public static Connection getConnection() throws SQLException{
         return ds.getConnection();
     }
     public static void closeConnection(Connection conn) throws SQLException{
@@ -58,7 +63,7 @@ public class DBUtil {
 		PreparedStatement ps = null;
 		String sql = "insert into viewt values('Anna')";
 		try {
-			conn = DBUtil.openConnection();
+			conn = Util.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.executeUpdate();
 			ps.close();
@@ -88,4 +93,26 @@ public class DBUtil {
     	return (String)props.get(name);
     }
 
+    
+    
+	/**
+	 * 
+	 * 复制
+	 * 
+	 */
+	public static void copy(String fromFile, String toFile) throws IOException {
+		FileInputStream inputStream = new FileInputStream(fromFile);
+		FileChannel fromChannel = inputStream.getChannel();
+
+		FileOutputStream outputStream = new FileOutputStream(toFile);
+		FileChannel toChannel = outputStream.getChannel();
+
+		toChannel.transferFrom(fromChannel, 0, fromChannel.size());
+		// fromChannel.transferTo(0, fromChannel.size(), toChannel);
+		toChannel.force(true);
+		inputStream.close();
+		fromChannel.close();
+		outputStream.close();
+		toChannel.close();
+	}
 }
