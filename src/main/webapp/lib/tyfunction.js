@@ -58,13 +58,22 @@ TyFunction.queryFiles = function(){
 	var ip = $('#ip').val();
 	var username = $("#username").val();
 	var passcode = $("#passcode").val();
-	var type = $(":radio")
+	var SQLDialect = $(":radio")
 	var driver = $('#driver').val();
 	var sid = $('#sid').val();
 	$.ajax({
 	   type: "GET",
+	   dataType:'JSON',
 	   url: this.cxt+"/gb",
-	   data: "src_addr="+src_addr+"&ip="+ip+"&username"+username+"&passcode="+passcode+"&type="+type+"&driver="+driver+"&sid="+sid,
+	   data: {
+		   src_addr:src_addr,
+		   ip:ip,
+		   username:username,
+		   passcode:passcode,
+		   SQLDialect:SQLDialect,
+		   driver:driver,
+		   sid:sid
+	   },
 	   success: function(msg){
 	     //alert( "Data Saved: " + msg );
 		   eval('var rs = '+msg);

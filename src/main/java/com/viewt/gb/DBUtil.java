@@ -10,15 +10,16 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.viewt.gb.servlet.OperateResource;
 
 public class DBUtil {
 	
 	
 	private static DataSource ds = null;   
-    private static Properties props = null ;
+    public static Properties props = new Properties();
     public  static void initProperties(){
     	try{
-            InputStream in = DBUtil.class.getResourceAsStream("ds.properties");//getResourceAsStream(DBUtil.class.getResource("").getPath()+"ds.properties");
+            InputStream in = DBUtil.class.getResourceAsStream(OperateResource.userHome);//getResourceAsStream(DBUtil.class.getResource("").getPath()+"ds.properties");
             props = new Properties();
             props.load(in);
             System.out.println(props.get("url"));
