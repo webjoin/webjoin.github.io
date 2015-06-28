@@ -13,7 +13,6 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-import com.viewt.gb.servlet.OperateResource;
 
 public class Util {
 	
@@ -24,13 +23,12 @@ public class Util {
 	public final static Properties enProps = new Properties();
 	
 	private static DataSource ds = null;   
-    public final static Properties props = new Properties();
+    public final static Properties dbProps = new Properties();
     public  static void initProperties(){
     	try{
-    		props.clear();
-            InputStream in = Util.class.getResourceAsStream(gbFile);//getResourceAsStream(DBUtil.class.getResource("").getPath()+"ds.properties");
-            props.load(in);
-            System.out.println(props.get("url"));
+    		dbProps.clear();
+            InputStream in = new FileInputStream(gbFile);
+            dbProps.load(in);
             in.close();
         }catch(Exception ex){
             ex.printStackTrace();
@@ -38,7 +36,7 @@ public class Util {
     }
     public  static void initDB() throws Exception{
 			initProperties();
-			ds = DruidDataSourceFactory.createDataSource(props);
+			ds = DruidDataSourceFactory.createDataSource(dbProps);
     }
      
     public static Connection getConnection() throws SQLException{
@@ -87,10 +85,10 @@ public class Util {
     
     
     public static void setProperty(String name,String value){
-    	props.put(name, value);
+    	dbProps.put(name, value);
     }
     public static String getProperty(String name){
-    	return (String)props.get(name);
+    	return (String)dbProps.get(name);
     }
 
     

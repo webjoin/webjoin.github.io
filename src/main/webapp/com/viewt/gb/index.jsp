@@ -22,9 +22,9 @@
 
   <!-- <button type="button" class="btn btn-lg btn-success">Success</button> -->
 	
-	sss
+	  
 	<br>
-	<header style="display: ${}">
+	<header style='display: ${isInit?"none":"blank"}'>
 		<div class="input-group input-group-lg">
 		  <span class="input-group-addon" id="sizing-addon3">请输入工程src目录</span>
 		  <input type="text" class="form-control" placeholder="请输入工程src目录" aria-describedby="sizing-addon3" id='src_addr' value="/Users/Elijah/Learning/git-repo/Jerusalem/src/main/java/com/viewt">
@@ -38,17 +38,17 @@
 			  <div class="col-lg-6">
 			    <div class="input-group">
 			      <span class="input-group-addon">
-			        <input type="radio" aria-label="..." name = "radio">&nbsp;&nbsp;Oracle
+			        <input type="radio" aria-label="..." name = "radio" value="oracle">&nbsp;&nbsp;Oracle
 			      </span>
 			      <span class="input-group-addon">
-			        <input type="radio" aria-label="..." name = "radio">&nbsp;&nbsp;Mysql
+			        <input type="radio" aria-label="..." name = "radio" value="mysql" checked="checked">&nbsp;&nbsp;Mysql
 			      </span>
 			    </div><!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
 			</div><!-- /.row -->
 			<input type="text" class="form-control" placeholder="Driver" aria-describedby="sizing-addon3" id='driver' value='com.mysql.jdbc.Driver'>
-			<input type="text" class="form-control" placeholder="SID" aria-describedby="sizing-addon3" id = 'sid' value=''>
-			<button type="button" class="btn btn-lg btn-success" onclick="TyFunction.queryFiles()">提交</button>
+			<input type="text" class="form-control" placeholder="SID" aria-describedby="sizing-addon3" id = 'sid' value='openfire'>
+			<button type="button" class="btn btn-lg btn-success" onclick="TyFunction.initBD()">提交</button>
 		  	<div class="alert alert-danger" role="alert" id="error_tips" style="display: none;">
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			  <strong>Warning!</strong>
@@ -90,6 +90,13 @@
     <script src="/jerusalem/lib/jquery-1.11.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/jerusalem/lib/bootstrap-3.3.4/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	var isInit = ${isInit};
+    	var TyFunction = {
+    			cxt : "${pageContext.request.contextPath }"
+    	};
+    	
+    </script>
     <script type="text/javascript" src="/jerusalem/lib/tyfunction.js"></script>
   </body>
 </html>

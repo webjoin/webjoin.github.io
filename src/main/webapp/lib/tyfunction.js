@@ -1,6 +1,4 @@
-var TyFunction = {
-		cxt : "/jerusalem"
-};
+
 
 $(function () {
 //		TyFunction.generateHtml();
@@ -49,23 +47,28 @@ $(function () {
 			
 		}
 	}
+	
+	if(isInit){
+		TyFunction.queryFiles();
+	}
 });
 
 
 //查找工程源目录下文件
-TyFunction.queryFiles = function(){
+TyFunction.initBD = function(){
 	var src_addr = $('#src_addr').val();
 	var ip = $('#ip').val();
 	var username = $("#username").val();
 	var passcode = $("#passcode").val();
-	var SQLDialect = $(":radio")
+	var SQLDialect = $(':checked[name=radio]').val();
 	var driver = $('#driver').val();
 	var sid = $('#sid').val();
 	$.ajax({
 	   type: "GET",
-	   dataType:'JSON',
-	   url: this.cxt+"/gb",
+	   dataType:'json',
+	   url: this.cxt+"/index.html",
 	   data: {
+		   op:'initDB',
 		   src_addr:src_addr,
 		   ip:ip,
 		   username:username,
@@ -74,20 +77,48 @@ TyFunction.queryFiles = function(){
 		   driver:driver,
 		   sid:sid
 	   },
-	   success: function(msg){
+	   success: function(rs){
 	     //alert( "Data Saved: " + msg );
-		   eval('var rs = '+msg);
-		   if(rs.success){
-			   $("#error_tips").hide('fast')
-			   TyFunction.data = rs.msg;
-			   TyFunction.generateHtml();
-			   TyFunction.queryInit();
+		  // eval('var rs = '+msg);
+		   if(rs.success || rs.success == 'true' ){ //DB is ready
+			   TyFunction.queryFiles();
+//			   $("#error_tips").hide('fast')
+//			   TyFunction.data = rs.msg;
+//			   TyFunction.generateHtml();
+//			   TyFunction.queryInit();
 		   }else{
 			   $("#error_tips").show('fast').append(rs.msg)
 		   }
+	   },
+	   error:function (XMLHttpRequest, textStatus, errorThrown) {
+		   console.log(textStatus+'---');
 	   }
 	});
 };
+
+TyFunction.queryFiles = function(){
+	$.ajax({
+		   type: "GET",
+		   dataType:'json',
+		   url: this.cxt+"/index.html",
+		   data: {
+			   op:'loadFiles'
+		   },
+		   success: function(rs){
+		     //alert( "Data Saved: " + msg );
+//			   eval('var rs = '+msg);
+			   if(rs.success || rs.success == 'true'){ //DB is ready
+				   TyFunction.data = rs.msg;
+				   TyFunction.generateHtml();
+				   TyFunction.queryInit();
+				   $("#error_tips").hide('fast')
+				   $("header").hide('fast')
+			   }else{
+				   $("#error_tips").show('fast').append(rs.msg)
+			   }
+		   }
+		});
+}
 
 TyFunction.queryInit = function(){
 	$('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
