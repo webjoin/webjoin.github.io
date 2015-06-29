@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -74,7 +75,10 @@
 		    </ul>
 		</div>
 		<div class='left-well'>
-			
+			<c:forEach var="tb" items="${tables}" varStatus="status">
+			 	<%-- ${varStatus.index}: --%>
+			 	  <br>${ tb}:${status.index}
+			</c:forEach>
 		</div>
    </div>
 

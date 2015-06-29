@@ -133,6 +133,9 @@ public class OperateServlet extends HttpServlet {
 //		if(this.isInit){ //false
 			request.setAttribute("isInit", this.isInit);
 			request.setAttribute("i18n", I1n8ThreadLocal.get());
+			if(this.isInit)
+				request.setAttribute("tables", Util.queryTables(Util.getQueryTablesSql()));
+			//queryTables
 //			response.sendRedirect(request.getContextPath()+"/com/viewt/gb/index.jsp");
 			request.getRequestDispatcher("/com/viewt/gb/index.jsp").forward(request, response);
 //		}
@@ -149,13 +152,13 @@ public class OperateServlet extends HttpServlet {
 		String passcode = request.getParameter("passcode");
 		String SQLDialect = request.getParameter("SQLDialect");
 		String driver = request.getParameter("driver");
-		String sid = request.getParameter("sid");
+		String db = request.getParameter("db");
 		String src_addr = request.getParameter("src_addr");
 		// jdbc:mysql://localhost:3306/openfire?useUnicode=true&characterEncoding=UTF8
 		// jdbc:oracle:thin:@127.0.0.1:1521:ORCL
 		String url = "";
 		if ("mysql".equals(SQLDialect)) {
-			url = "jdbc:mysql://" + ip + ":3306/" + sid+ "?useUnicode=true&characterEncoding=UTF8";
+			url = "jdbc:mysql://" + ip + ":3306/" + db+ "?useUnicode=true&characterEncoding=UTF8";
 		} else if ("oracle".equals(SQLDialect)) {
 			url = "jdbc:oracle:thin:@" + ip + ":1521:ORCL";
 		}
@@ -166,7 +169,7 @@ public class OperateServlet extends HttpServlet {
 		Util.setProperty("username", username);
 		Util.setProperty("password", passcode);
 		Util.setProperty("driverClassName", driver);
-		Util.setProperty("sid", sid);
+		Util.setProperty("db", db);
 		Util.setProperty("src_addr", src_addr);
 		try {
 			FileOutputStream fos = new FileOutputStream(Util.gbFile,false);

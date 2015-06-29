@@ -75,7 +75,7 @@ TyFunction.initBD = function(){
 		   passcode:passcode,
 		   SQLDialect:SQLDialect,
 		   driver:driver,
-		   sid:sid
+		   db:sid
 	   },
 	   success: function(rs){
 	     //alert( "Data Saved: " + msg );
