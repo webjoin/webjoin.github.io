@@ -10,8 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GB tool by Elijah</title>
 <!-- Bootstrap -->
-    <link href="/jerusalem/lib/bootstrap-3.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/jerusalem/lib/tree.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/lib/bootstrap-3.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/lib/bootstrap-3.3.4/prettify.css"  rel="stylesheet" >
+    <link href="${pageContext.request.contextPath }/lib/bootstrap-3.3.4/dist/css/bootstrap-multiselect.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/lib/tree.css" rel="stylesheet">
+	
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,13 +25,11 @@
   <body>
 
   <!-- <button type="button" class="btn btn-lg btn-success">Success</button> -->
-	
-	  
 	<br>
 	<header style='display: ${isInit?"none":"blank"}'>
 		<div class="input-group input-group-lg">
 		  <span class="input-group-addon" id="sizing-addon3">请输入工程src目录</span>
-		  <input type="text" class="form-control" placeholder="请输入工程src目录" aria-describedby="sizing-addon3" id='src_addr' value="/Users/Elijah/Learning/git-repo/Jerusalem/src/main/java/com/viewt">
+		  <input type="text" class="form-control" placeholder="请输入工程src目录" aria-describedby="sizing-addon3" id='src_addr' value="/Users/Elijah/Learning/git-repo${pageContext.request.contextPath }/src/main/java/com/viewt">
 		</div>
 		<div class="input-group input-group-lg">
 		  <span class="input-group-addon" id="sizing-addon3">数据源配置</span>
@@ -75,10 +76,17 @@
 		    </ul>
 		</div>
 		<div class='left-well'>
-			<c:forEach var="tb" items="${tables}" varStatus="status">
-			 	<%-- ${varStatus.index}: --%>
-			 	  <br>${ tb}:${status.index}
-			</c:forEach>
+		<div class="btn-group">
+			<select id="multiselect-boot" multiple="multiple">
+				<c:forEach var="tb" items="${tables}" varStatus="status">
+				 	<%-- ${varStatus.index}: --%>
+				 	<option value="${ tb}">${ tb}:${status.index}</option>
+				</c:forEach>
+			    
+			</select>
+			<button id="example-destroy-button" class="btn btn-danger">${i18n.generate}</button>
+			</div>
+			
 		</div>
    </div>
 
@@ -91,9 +99,14 @@
 	</div>
 	<!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/jerusalem/lib/jquery-1.11.2.min.js"></script>
+    <script src="${pageContext.request.contextPath }/lib/jquery-1.11.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/jerusalem/lib/bootstrap-3.3.4/dist/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath }/lib/bootstrap-3.3.4/dist/js/bootstrap.min.js"></script>
+    
+    <script src="${pageContext.request.contextPath }/lib/bootstrap-3.3.4/prettify.js" ></script>
+    <script src="${pageContext.request.contextPath }/lib/bootstrap-3.3.4/dist/js/bootstrap-multiselect.js" ></script>
+	
+
     <script type="text/javascript">
     	var isInit = ${isInit};
     	var TyFunction = {
@@ -101,6 +114,15 @@
     	};
     	
     </script>
-    <script type="text/javascript" src="/jerusalem/lib/tyfunction.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/lib/tyfunction.js"></script>
+    <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#multiselect-boot').multiselect({
+                        enableFiltering: true,
+                        filterBehavior: 'value'
+                    });
+                     
+                });
+     </script>
   </body>
 </html>
