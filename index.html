@@ -1,14 +1,123 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>Elijah's日常消费记录</title>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" ></script>
+	<script src="https://momentjs.com/downloads/moment.min.js" ></script>
+	<script src="./data.js"></script>
+	<script>
+		$.when( $.ready ).then(function() {
+			var html = "<table border='1'>"
+				html +="<tr>";	
+				for (key in dailyColumns) {
+					html +="<td>";
+					html += dailyColumns[key];
+					html +="</td>";
+				}
+				html +="</tr>";
+				for (index in dailyDatas) {
+					//console.log(dailyDatas[index]);
+					html +="<tr>";	
+					for (key in dailyColumns) {
+						html +="<td>";
+						html += dailyDatas[index][dailyColumns[key]];
+						html +="</td>";
+					}
+					html +="</tr>";
+				}
+			html += "</table>";
+
+			$("#dailyTable").html(html);
+
+
+			
+			$("#statisticTable").html("<tr><td>统计（Only Elijah&Jing）："+cal(dailyDatas)+"</td></tr>");
+			
+			var filterByDateData = filterByDate(dailyDatas);
+			for(key1 in filterByDateData){
+				var html = $("#statisticTable").html()
+				var child = "<tr><td>月份"+key1+" ："+cal(filterByDateData[key1])+"<br/>明细分类统计：<br/><ul>";
+					var categoryData = filterByCategory(filterByDateData[key1])
+					//console.log("categoryData"+JSON.stringify(categoryData));
+					for(category in categoryData){
+						child +="<li>"+category+" ："+cal(categoryData[category])+"</li>"
+					}
+
+					child += "</ul></td></tr>";
+
+				$("#statisticTable").html(html+child);
+			}
+		});
+
+		function filterByDate(dailyDatas){
+			var data = {};
+			for (const index in dailyDatas) {
+				var key = moment(new Date(dailyDatas[index].date)).format('YYYY-MM');     
+				if(data[key] == undefined){
+					data[key] = [];
+				}
+				data[key].push(dailyDatas[index]);
+			}
+			return data;
+		}
+
+		function filterByCategory(dateGroupedDataList){
+			var data = {};
+			for (const index in dateGroupedDataList) {
+				var key = dateGroupedDataList[index].subCategory;
+				//console.log("分类："+key);
+				if(data[key] == undefined){
+					data[key] = [];
+				}
+				data[key].push(dateGroupedDataList[index]);
+			}
+			return data;
+		}
+
+
+		function cal(dailyDatas){
+			var currencyAmount = {};
+			for (index in dailyDatas) {
+				var payer = dailyDatas[index].payer;
+				if("Elijah" != payer && 'Jing' != payer){
+					continue;
+				}
+				var currency = dailyDatas[index].currency
+				if(currencyAmount[currency] == undefined){
+					currencyAmount[currency] = {amount: 0};
+				}
+				currencyAmount[currency].amount += parseFloat(dailyDatas[index].amount);
+			}
+			var statisticValue = "";
+			var totalCNY = 0;
+			for (key in currencyAmount) {
+				var amount = currencyAmount[key].amount;
+				if(key == 'AED'){
+					var cny = Math.round( amount*1.95 * 10 ) / 10 ;
+					
+					statisticValue += key +":" + amount + "*1.95=CNY:" + (cny) + ","
+					totalCNY += cny;
+				}else{
+					statisticValue += key +":"+amount+","
+					totalCNY += amount;
+				}
+				
+			}
+			return statisticValue+";总计(CNY):"+totalCNY;
+		}
+	</script>
 </head>
+
 <body>
-Hello world1
 	<table>
-		<th><td>日期</td><td>分类</td><td>小类</td><td>商品</td><td>金额</td><td>付款人</td><td>备注</td></th>
-		<tr><td>2023-06-26</td><td>聚餐</td><td>礼物</td><td>粽子</td><td>xxx.00AED</td><td>Jing</td></td><td>麦子团契礼物</td></tr>
-		<tr><td>2023-06-26</td><td>聚餐</td><td>聚餐</td><td>赢记（迪拜）</td><td>250.00AED</td><td>Jing</td></td><td>麦子团契感恩假期安排分享（EID、暑假）</td></tr>
+		<tr>
+			<td><div id = "dailyTable" ></div></td>
+			<td valign="top">
+				<table id="statisticTable" border="1"></table>
+			</td>
+		</tr>
 	</table>
 </body>
 </html>
