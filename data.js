@@ -3,7 +3,8 @@ var dailyColumns=["date","category","subCategory","goods","amount","currency","d
 
 
 var dailyDatas = [
-
+    {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"Baraba raha","amount":"128.25",currency:"AED",drcr:"D","payer":"Elijah","memo":"和Eric&siying聚餐交通 一天的交通"},
+    {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"Off The Hook","amount":"185.00",currency:"AED",drcr:"-","payer":"Eric","memo":"和Eric&siying聚餐交通"},
     {"date":"2023-06-26","category":"新家","subCategory":"家具","goods":"床桌椅","amount":"2370.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"从思思家购买家具"},
     {"date":"2023-06-26","category":"聚餐","subCategory":"聚餐","goods":"Qasr Alasala mandi and mathbi restaurant","amount":"165.00",currency:"AED",drcr:"-","payer":"BaoLiangLu","memo":"With BaoLiangLu"},
     {"date":"2023-06-25","category":"聚餐","subCategory":"聚餐","goods":"乾州火锅（烤肉）","amount":"390.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"With罗老师金晓姐小聚"},
