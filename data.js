@@ -30,7 +30,7 @@ var dailyDatas = [
     {"date":"2023-05-20","category":"婚礼","subCategory":"婚礼","goods":"主内小礼品","amount":"424.00",currency:"CNY",drcr:"D","payer":"Jing","memo":"婚礼"},
     {"date":"2023-05-20","category":"婚礼","subCategory":"礼金","goods":"Elijah's爸爸给彩礼","amount":"60000.00",currency:"CNY",drcr:"-","payer":"Elijah's爸爸","memo":"彩礼"},
     {"date":"2023-05-20","category":"婚礼","subCategory":"礼金","goods":"Elijah's爸爸给Jing","amount":"12000.00",currency:"CNY",drcr:"C","payer":"Elijah's爸爸","memo":"礼金"},
-    {"date":"2023-05-20","category":"婚礼","subCategory":"礼金","goods":"Elijah's Bro礼金","amount":"10000.00",currency:"CNY",drcr:"-","payer":"Elijah's爸爸","memo":"礼金（弟兄之间不需要送 最后被Jing‘s妈妈收下了）"},
+    {"date":"2023-05-20","category":"婚礼","subCategory":"礼金","goods":"Elijah's Bro礼金","amount":"10000.00",currency:"CNY",drcr:"-","payer":"Elijah's Bro","memo":"礼金（弟兄之间不需要送 最后被Jing‘s妈妈收下了）"},
     {"date":"2023-05-20","category":"婚礼","subCategory":"礼金","goods":"Jing's朋友送的礼金","amount":"26620.00",currency:"CNY",drcr:"C","payer":"Jing's friends","memo":"礼金"},
     {"date":"2023-05-20","category":"婚礼","subCategory":"礼金","goods":"Elijah's朋友送的礼金","amount":"12176.00",currency:"CNY",drcr:"C","payer":"Elijah's friends","memo":"礼金"},
     {"date":"2023-05-20","category":"婚礼","subCategory":"礼金","goods":"婚礼dxzm和朋友们的祝福","amount":"32500.00",currency:"AED",drcr:"C","payer":"Our friends","memo":"礼金"}
