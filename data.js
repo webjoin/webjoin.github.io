@@ -3,6 +3,8 @@ var dailyColumns=["date","category","subCategory","goods","amount","currency","d
 
 
 var dailyDatas = [
+    {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"龙宝宝餐厅外卖","amount":"227.85",currency:"AED",drcr:"D","payer":"Elijah","memo":"探望LiLi姊妹"},
+    {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"探望礼物","amount":"60.33",currency:"AED",drcr:"D","payer":"Elijah","memo":"探望LiLi姊妹的水果"},
     {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"Vietnam restaurant","amount":"224.70",currency:"AED",drcr:"D","payer":"Elijah","memo":"和Jizhen Huang弟兄聚餐交通分享（关于考研）"},
     {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"Baraba raha","amount":"128.25",currency:"AED",drcr:"D","payer":"Elijah","memo":"和Eric&siying聚餐交通 一天的交通"},
     {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"Off The Hook","amount":"185.00",currency:"AED",drcr:"-","payer":"Eric","memo":"和Eric&siying聚餐交通"},
