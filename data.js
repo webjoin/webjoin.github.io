@@ -3,13 +3,18 @@ var dailyColumns=["date","category","subCategory","goods","amount","currency","d
 
 
 var dailyDatas = [
+    {"date":"2023-07-03","category":"消费","subCategory":"日常菜蔬","goods":"鸡蛋","amount":"13.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"在WEST ZONE沟买了鸡蛋"},
+    {"date":"2023-07-03","category":"消费","subCategory":"交通","goods":"打车去公司","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"从cleveland clinic 打车去公司"},
+    {"date":"2023-07-03","category":"消费","subCategory":"医疗","goods":"挂号费","amount":"50.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"General Surg 挂号费"},
+    {"date":"2023-07-03","category":"消费","subCategory":"医疗","goods":"挂号费","amount":"50.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"Primary Care 挂号费"},
     {"date":"2023-07-02","category":"消费","subCategory":"晚餐","goods":"Shawma","amount":"8.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"Jing's Dinner"},
     {"date":"2023-07-02","category":"消费","subCategory":"医疗","goods":"Check&XRay Fees","amount":"92.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"Elijah&Jing's Fees"},
-    {"date":"2023-07-02","category":"消费","subCategory":"日常消费","goods":"Wemart 菜蔬&水果","amount":"83.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"菜蔬&水果"},
+    {"date":"2023-07-02","category":"消费","subCategory":"日常菜蔬","goods":"Wemart 菜蔬&水果","amount":"83.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"菜蔬&水果"},
     {"date":"2023-07-02","category":"消费","subCategory":"聚餐","goods":"Costa Coffee","amount":"43.00",currency:"AED",drcr:"-","payer":"Beili","memo":"和beili&xiaolong交通"},
     {"date":"2023-07-02","category":"消费","subCategory":"聚餐","goods":"Shanghai restaurant","amount":"201.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"和beili&xiaolong交通"},
+    
     {"date":"2023-06-30","category":"消费","subCategory":"日常消费","goods":"剪头发","amount":"15.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"剪头发"},
-    {"date":"2023-06-30","category":"消费","subCategory":"日常消费","goods":"配置眼镜","amount":"1988.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"使用保险可以cover80%顺便给Jing买了太阳镜"},
+    {"date":"2023-06-30","category":"消费","subCategory":"日常特殊消费","goods":"配置眼镜","amount":"1988.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"使用保险可以cover80%顺便给Jing买了太阳镜"},
     {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"龙宝宝餐厅外卖","amount":"227.85",currency:"AED",drcr:"D","payer":"Elijah","memo":"探望LiLi姊妹"},
     {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"探望礼物","amount":"60.33",currency:"AED",drcr:"D","payer":"Elijah","memo":"探望LiLi姊妹的水果"},
     {"date":"2023-06-29","category":"聚餐","subCategory":"聚餐","goods":"Vietnam restaurant","amount":"224.70",currency:"AED",drcr:"D","payer":"Elijah","memo":"和Jizhen Huang弟兄聚餐交通分享（关于考研）"},
