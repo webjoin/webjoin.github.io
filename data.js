@@ -5,7 +5,7 @@ var dailyColumns=["date","category","subCategory","goods","amount","currency","d
 var dailyDatas = [
     
     
-    {"date":"2023-07-03","category":"消费","subCategory":"日常菜蔬","goods":"周末菜&油","amount":"73.11",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
+    {"date":"2023-07-03","category":"消费","subCategory":"日常菜蔬","goods":"周末菜&油","amount":"109.46",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
     {"date":"2023-07-03","category":"消费","subCategory":"水果","goods":"Banana Philipine","amount":"5.29",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
     {"date":"2023-07-06","category":"消费","subCategory":"日常菜蔬","goods":"购买seabream一条","amount":"15.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"晚餐煎鱼家常做法"},
 
