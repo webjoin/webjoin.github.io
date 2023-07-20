@@ -5,6 +5,17 @@ var dailyColumns=["date","category","subCategory","goods","amount","currency","d
 var dailyDatas = [
     
     
+    {"date":"2023-07-18","category":"消费","subCategory":"水果","goods":"苹果","amount":"14.35",currency:"AED",drcr:"D","payer":"Elijah","memo":"温超水果"},
+    {"date":"2023-07-18","category":"消费","subCategory":"日常菜蔬","goods":"打车下班","amount":"14.35",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
+    {"date":"2023-07-17","category":"消费","subCategory":"交通","goods":"打车下班","amount":"5.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
+    {"date":"2023-07-17","category":"消费","subCategory":"其他","goods":"xxx","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
+    {"date":"2023-07-17","category":"消费","subCategory":"其他","goods":"xxx","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
+    {"date":"2023-07-17","category":"消费","subCategory":"日常","goods":"Seven Colors","amount":"19.73",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
+    {"date":"2023-07-17","category":"消费","subCategory":"交通","goods":"小结打车费","amount":"72.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
+    {"date":"2023-07-17","category":"消费","subCategory":"交通","goods":"水果","amount":"2.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"west zone(香蕉)"},
+
+    {"date":"2023-07-11","category":"消费","subCategory":"交通","goods":"打车下班","amount":"5.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
+    {"date":"2023-07-11","category":"消费","subCategory":"交通","goods":"打车下班","amount":"5.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
     {"date":"2023-07-09","category":"消费","subCategory":"医疗","goods":"洗牙&根管治疗&补牙","amount":"438.60",currency:"AED",drcr:"D","payer":"Elijah","memo":"With Jing"},
     {"date":"2023-07-08","category":"消费","subCategory":"日常菜蔬","goods":"周末菜&油","amount":"109.46",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
     {"date":"2023-07-08","category":"消费","subCategory":"水果","goods":"Banana Philipine","amount":"5.29",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
