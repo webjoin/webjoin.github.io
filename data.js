@@ -6,7 +6,7 @@ var dailyDatas = [
     
     
     {"date":"2023-07-18","category":"消费","subCategory":"水果","goods":"苹果","amount":"14.35",currency:"AED",drcr:"D","payer":"Elijah","memo":"温超水果"},
-    {"date":"2023-07-18","category":"消费","subCategory":"日常&菜蔬","goods":"温超晚餐","amount":"30.31",currency:"AED",drcr:"D","payer":"Elijah","memo":"温超晚餐"},
+    {"date":"2023-07-18","category":"消费","subCategory":"日常&菜蔬","goods":"温超晚餐","amount":"30.31",currency:"AED",drcr:"D","payer":"Elijah","memo":"温超菜蔬&熟食晚餐"},
     {"date":"2023-07-17","category":"消费","subCategory":"交通","goods":"打车下班","amount":"5.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
     {"date":"2023-07-17","category":"消费","subCategory":"其他","goods":"xxx","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
     {"date":"2023-07-17","category":"消费","subCategory":"其他","goods":"xxx","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
