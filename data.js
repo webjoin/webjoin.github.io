@@ -18,7 +18,7 @@ var dailyDatas = [
     {"date":"2023-07-11","category":"消费","subCategory":"交通","goods":"打车下班","amount":"5.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
     {"date":"2023-07-09","category":"消费","subCategory":"医疗","goods":"洗牙&根管治疗&补牙","amount":"438.60",currency:"AED",drcr:"D","payer":"Elijah","memo":"With Jing"},
     {"date":"2023-07-08","category":"消费","subCategory":"日常&菜蔬","goods":"周末菜&油","amount":"109.46",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
-    {"date":"2023-06-30","category":"消费","subCategory":"日常特殊消费","goods":"配置眼镜","amount":"1500.00",currency:"AED",drcr:"C","payer":"Elijah","memo":"保险退还1500"},
+    {"date":"2023-07-08","category":"消费","subCategory":"日常特殊消费","goods":"配置眼镜","amount":"1500.00",currency:"AED",drcr:"C","payer":"Elijah","memo":"保险退还1500"},
     {"date":"2023-07-08","category":"消费","subCategory":"水果","goods":"Banana Philipine","amount":"5.29",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
     {"date":"2023-07-06","category":"消费","subCategory":"日常&菜蔬","goods":"购买seabream一条","amount":"15.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"晚餐煎鱼家常做法"},
 
