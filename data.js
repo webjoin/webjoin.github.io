@@ -6,28 +6,28 @@ var dailyDatas = [
     
     
     {"date":"2023-07-18","category":"消费","subCategory":"水果","goods":"苹果","amount":"14.35",currency:"AED",drcr:"D","payer":"Elijah","memo":"温超水果"},
-    {"date":"2023-07-18","category":"消费","subCategory":"日常菜蔬","goods":"温超晚餐","amount":"30.31",currency:"AED",drcr:"D","payer":"Elijah","memo":"温超晚餐"},
+    {"date":"2023-07-18","category":"消费","subCategory":"日常&菜蔬","goods":"温超晚餐","amount":"30.31",currency:"AED",drcr:"D","payer":"Elijah","memo":"温超晚餐"},
     {"date":"2023-07-17","category":"消费","subCategory":"交通","goods":"打车下班","amount":"5.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
     {"date":"2023-07-17","category":"消费","subCategory":"其他","goods":"xxx","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
     {"date":"2023-07-17","category":"消费","subCategory":"其他","goods":"xxx","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
-    {"date":"2023-07-17","category":"消费","subCategory":"日常","goods":"Seven Colors","amount":"19.73",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
+    {"date":"2023-07-17","category":"消费","subCategory":"日常&菜蔬","goods":"Seven Colors","amount":"19.73",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
     {"date":"2023-07-17","category":"消费","subCategory":"交通","goods":"小结打车费","amount":"72.00",currency:"AED",drcr:"D","payer":"Elijah","memo":""},
     {"date":"2023-07-17","category":"消费","subCategory":"交通","goods":"水果","amount":"2.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"west zone(香蕉)"},
 
     
     {"date":"2023-07-11","category":"消费","subCategory":"交通","goods":"打车下班","amount":"5.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"和3同事拼车AA"},
     {"date":"2023-07-09","category":"消费","subCategory":"医疗","goods":"洗牙&根管治疗&补牙","amount":"438.60",currency:"AED",drcr:"D","payer":"Elijah","memo":"With Jing"},
-    {"date":"2023-07-08","category":"消费","subCategory":"日常菜蔬","goods":"周末菜&油","amount":"109.46",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
+    {"date":"2023-07-08","category":"消费","subCategory":"日常&菜蔬","goods":"周末菜&油","amount":"109.46",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
     {"date":"2023-07-08","category":"消费","subCategory":"水果","goods":"Banana Philipine","amount":"5.29",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
-    {"date":"2023-07-06","category":"消费","subCategory":"日常菜蔬","goods":"购买seabream一条","amount":"15.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"晚餐煎鱼家常做法"},
+    {"date":"2023-07-06","category":"消费","subCategory":"日常&菜蔬","goods":"购买seabream一条","amount":"15.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"晚餐煎鱼家常做法"},
 
-    {"date":"2023-07-03","category":"消费","subCategory":"日常菜蔬","goods":"鸡蛋","amount":"13.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"在WEST ZONE沟买了鸡蛋"},
+    {"date":"2023-07-03","category":"消费","subCategory":"日常&菜蔬","goods":"鸡蛋","amount":"13.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"在WEST ZONE沟买了鸡蛋"},
     {"date":"2023-07-03","category":"消费","subCategory":"交通","goods":"打车去公司","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"从cleveland clinic 打车去公司"},
     {"date":"2023-07-03","category":"消费","subCategory":"医疗","goods":"挂号费","amount":"50.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"General Surg 挂号费"},
     {"date":"2023-07-03","category":"消费","subCategory":"医疗","goods":"挂号费","amount":"50.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"Primary Care 挂号费"},
     {"date":"2023-07-02","category":"消费","subCategory":"晚餐","goods":"Shawma","amount":"8.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"Jing's Dinner"},
     {"date":"2023-07-02","category":"消费","subCategory":"医疗","goods":"Check&XRay Fees","amount":"92.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"Elijah&Jing's Fees"},
-    {"date":"2023-07-02","category":"消费","subCategory":"日常菜蔬","goods":"Wemart 菜蔬&水果","amount":"83.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"菜蔬&水果"},
+    {"date":"2023-07-02","category":"消费","subCategory":"日常&菜蔬","goods":"Wemart 菜蔬&水果","amount":"83.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"菜蔬&水果"},
     {"date":"2023-07-02","category":"消费","subCategory":"聚餐","goods":"Costa Coffee","amount":"43.00",currency:"AED",drcr:"-","payer":"Beili","memo":"和beili&xiaolong交通"},
     {"date":"2023-07-02","category":"消费","subCategory":"聚餐","goods":"Shanghai restaurant","amount":"201.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"和beili&xiaolong交通"},
     
