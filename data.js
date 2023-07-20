@@ -22,6 +22,7 @@ var dailyDatas = [
     {"date":"2023-07-08","category":"消费","subCategory":"水果","goods":"Banana Philipine","amount":"5.29",currency:"AED",drcr:"D","payer":"Elijah","memo":"周末shopping"},
     {"date":"2023-07-06","category":"消费","subCategory":"日常&菜蔬","goods":"购买seabream一条","amount":"15.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"晚餐煎鱼家常做法"},
 
+    {"date":"2023-07-04","category":"消费","subCategory":"房租","goods":"房租","amount":"2200.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"斯巴鲁1804单间"},
     {"date":"2023-07-03","category":"消费","subCategory":"日常&菜蔬","goods":"鸡蛋","amount":"13.50",currency:"AED",drcr:"D","payer":"Elijah","memo":"在WEST ZONE沟买了鸡蛋"},
     {"date":"2023-07-03","category":"消费","subCategory":"交通","goods":"打车去公司","amount":"12.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"从cleveland clinic 打车去公司"},
     {"date":"2023-07-03","category":"消费","subCategory":"医疗","goods":"挂号费","amount":"50.00",currency:"AED",drcr:"D","payer":"Elijah","memo":"General Surg 挂号费"},
